@@ -31,13 +31,16 @@ void EularAngles::canonize() {
         bank = 0.0f;
     }else {
         bank = wrapPi(bank);
+        
+        
+        
     }
     
     heading = wrapPi(heading);
     
 }
 
-void EularAngles::fromObjectToInertialQuaternion(const Quaternion &q) {
+void EularAngles::from1ObjectToInertialQuaternion(const Quaternion &q) {
     float sp = -2.0f * (q.y * q.z - q.w * q.x);
     
     if (fabs(sp) > 0.9999f) {
